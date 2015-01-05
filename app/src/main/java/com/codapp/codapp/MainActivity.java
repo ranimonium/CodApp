@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.provider.CallLog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -87,12 +88,13 @@ public class MainActivity extends ActionBarActivity {
             String phNumber = cursor.getString( number );
             String callType = cursor.getString( type );
             String callDate = cursor.getString( date );
-            Date callDayTime = new Date(Long.valueOf(callDate));
-//            DateUtils.getRelativeTimeSpanString(callDayTime.getTime(), now.getTime(), DateUtils.SECOND_IN_MILLIS);
+            Time t = new Time();
+            t.set(Long.valueOf(callDate));
+            String callDayTime = t.format("%Y:%m:%d %H:%M:%S");
             String callDuration = cursor.getString( duration );
             int dircode = Integer.parseInt( callType );
 
-            sb.append(phNumber + ',' + dircode + ',' + callDate + callDayTime + ',' + callDuration + '\n');
+            sb.append(phNumber + ',' + dircode + ',' + callDayTime + ',' + callDuration + '\n');
 
         }
         cursor.close();
@@ -125,7 +127,9 @@ public class MainActivity extends ActionBarActivity {
             String body = cursor.getString(bodyInt);
             String number = cursor.getString(addressInt);
             String date = cursor.getString(dateInt);
-            Date smsDayTime = new Date(Long.valueOf(date));
+            Time t = new Time();
+            t.set(Long.valueOf(date));
+            String smsDayTime = t.format("%Y:%m:%d %H:%M:%S");
             String type = cursor.getString(typeInt);
             //1 inbox; 2 sent; 3 draft
 

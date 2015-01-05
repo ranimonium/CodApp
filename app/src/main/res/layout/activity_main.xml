@@ -11,28 +11,20 @@
         android:text="calls"
         android:id="@+id/btnCalls"
         android:layout_marginRight="25dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginTop="53dp"
+        android:onClick="showCalls"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_marginEnd="53dp"
-        android:layout_marginTop="91dp"
-        android:onClick="showCalls" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SMS"
         android:id="@+id/btnMsgs"
-        android:layout_below="@+id/btnCalls"
-        android:layout_alignRight="@+id/textView"
         android:layout_marginRight="28dp"
-        android:onClick="showMsgs"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hi there, user.  We&apos;ll be using our tentacles to crawl over your privacy."
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:onClick="showMsgs"
+        android:layout_alignStart="@+id/btnCalls"
+        android:layout_below="@+id/btnCalls" />
 
 </RelativeLayout>
